@@ -1,12 +1,26 @@
 const { nextISSTimesForMyLocation } = require('./iss');
 
- nextISSTimesForMyLocation((error, passTimes) => {
-   if(error) {
-     return console.log(`Error, it did't work!`, error);
-   }
+const printDates = function (passTimes) {
+  for (const pass of passTimes) {
 
-   console.log(passTimes);
- })
+    const dateTime = new Date(0);
+    dateTime.setUTCSeconds(pass.risetime);
+    const duration = pass.duration;
+    console.log(`Nest pass at ${dateTime}, for ${duration} seconds!`);
+
+  }
+};
+
+nextISSTimesForMyLocation((error, passTimes) => {
+  if (error) {
+    return console.log(`Error, it did't work!`, error);
+  }
+
+  printDates(passTimes);
+})
+
+
+
 /*
 const exampleCoords = { latitude: '49.27670', longitude: '-123.13000' };
 
