@@ -6,7 +6,7 @@ const printDates = function (passTimes) {
     const dateTime = new Date(0);
     dateTime.setUTCSeconds(pass.risetime);
     const duration = pass.duration;
-    console.log(`Nest pass at ${dateTime}, for ${duration} seconds!`);
+    console.log(`Next pass at ${dateTime}, for ${duration} seconds!`);
 
   }
 };
